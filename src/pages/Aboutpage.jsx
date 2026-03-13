@@ -28,7 +28,7 @@ function About() {
         animate= {{ opacity: 1, x: 0 }}  
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}> 
-        <h2 className="font-serif text-3xl sm:text-4xl font-bold mb-6 text-red-700">Danat</h2>
+        <h2 className="font-serif text-3xl sm:text-4xl font-bold mb-6 text-red-700">DANAT ALBAHAR BBQ FISH </h2>
         <p className='text-gray-700 text-base sm:text-lg leading-relaxed text-justify '> At Danat Al Bahar BBQ Fish, we bring the rich flavors of the sea to your plate with traditional Qatari grilling. 
           Located in the scenic Souq Al Wakrah, we specialize in freshly caught seafood, marinated with authentic spices and barbecued to perfection.
           From juicy grilled fish to tender prawns, every dish is a celebration of taste and tradition. Whether you're enjoying a relaxed indoor meal or dining under the open sky, 

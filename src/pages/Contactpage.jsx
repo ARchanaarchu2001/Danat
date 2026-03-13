@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { motion } from "framer-motion";
-import ContactImage from "../assets/contactimage.jpg"; 
-import { Mail , MapPin, Phone } from 'lucide-react'
+import ContactImage from "../assets/contact.jpg"; 
+import { Mail , MapPin, Phone , LocateFixed} from 'lucide-react'
 import emailjs from '@emailjs/browser'
 
 function Contactpage() {
@@ -91,15 +91,25 @@ function Contactpage() {
      <div className="mt-10 space-y-4 px-6">
       <div className='flex items-center gap-4 text-gray-700'>
       <Mail className="w-5 h-5" />
-      <span className="text-gray-700 ">dine@danatalbaharuae.com</span>
+      <span className="text-gray-700 ">danatalbaharuae@gmail.com</span>
      </div>
      <div className="flex items-center gap-4 text-gray-700">
       <MapPin className="w-5 h-5" />
-      <span>Wakra Fish Market, Al, Al Wakrah, Qatar</span>
+      <span>
+       Al Hudaiba Rd, Jumeirah 1<br /> Dubai, United Arab Emirates
+      </span>
      </div>
      <div className="flex items-center gap-4 text-gray-700">
-      <Phone className="w-5 h-5 " />
-      <span className="text-gray-700 ">+971 47 770 7085</span>
+      <LocateFixed className="w-5 h-5" />
+      <span>Wakra Fish Market, Al, Al Wakrah, Qatar</span>
+     </div>
+
+     <div className="flex  items-start gap-4 text-gray-700">
+      <Phone className="w-5 h-5 mt-1" />
+      <div className='flex flex-col'>
+      <span className="text-gray-700 ">+971 50 232 6899</span>
+      <span className="text-gray-700 ">+971 50 412 8399</span>
+     </div>
      </div>
      </div>
      </motion.div>
@@ -143,7 +153,7 @@ function Contactpage() {
     className='mt-16'>
       <iframe 
       title="Google Map"
-      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6309.784777462046!2d51.6063867!3d25.1706677!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45cb35f3fc1ebf%3A0x83f10e5ce09dc8a9!2sDanat%20Al%20Bahar%20BBQ%20Fish!5e1!3m2!1sen!2sin!4v1747975758352!5m2!1sen!2sin" 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.5101330821863!2d55.2653299!3d25.2325475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f430047399fb1%3A0xcab18644e2365e72!2sDANAT%20ALBAHAR%20BBQ%20FISH%20UAE!5e1!3m2!1sen!2sin!4v1759569869937!5m2!1sen!2sin" 
       className="w-full h-96 rounded-lg shadow-md" 
       loading="lazy" 
       allowFullScreen>

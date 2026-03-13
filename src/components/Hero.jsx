@@ -106,12 +106,17 @@ const Hero = () => {
                       <span className="mt-2 text-white font-bold text-nowrap">Book Table</span>
                 </div>
                       {/* View Menu Option */}
-              <div 
-              onClick= { () => navigate("/menu")} 
-              className="flex flex-col items-center justify-center w-40 h-28 bg-white/30 hover:bg-white/10 border border-white/20 rounded-xl shadow-md p-4 cursor-pointer transition">
-                          <BookOpenText className="h-10 w-10 text-red-900" />
-                <span className="mt-2 text-white font-bold text-nowrap">View Menu</span>
-              </div>
+             
+<div
+  onClick={(e) => {
+    e.preventDefault();
+    window.open('/assets/menucard.pdf', '_blank', 'noopener,noreferrer');
+  }}
+  className="flex flex-col items-center justify-center w-40 h-28 bg-white/30 hover:bg-white/10 border border-white/20 rounded-xl shadow-md p-4 cursor-pointer transition"
+>
+  <BookOpenText className="h-10 w-10 text-red-900" />
+  <span className="mt-2 text-white font-bold text-nowrap">View Menu</span>
+</div>
 
     </div>
   </div>

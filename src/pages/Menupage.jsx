@@ -1,62 +1,63 @@
 import React, { useState } from 'react'
-import { X } from 'lucide-react';
+import { X } from 'lucide-react'
+import { Worker, Viewer } from '@react-pdf-viewer/core'
+import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout'
+import '@react-pdf-viewer/core/lib/styles/index.css'
+import '@react-pdf-viewer/default-layout/lib/styles/index.css'
 
+const Menus = ['/assets/menucard.pdf']
 
+export default function Menupage() {
+  const [open, setOpen] = useState(false)
+  const [pdfUrl, setPdfUrl] = useState(null)
+  const defaultLayoutPluginInstance = defaultLayoutPlugin()
 
+  const onView = (url) => {
+    setPdfUrl(url)
+    setOpen(true)
+  }
 
-const Menus = [
-    "/images/Menu1.png",
-    "/images/Menu2.png",
-    "/images/Menu3.png",
-    "/images/Menu4.png",
-    "/images/Menu5.png",
-    "/images/Menu6.png",
-    "/images/Menu7.png",
-    "/images/Menu8.png",
-    "/images/Menu9.png",
-    "/images/Menu10.png",
-    "/images/Menu11.png",
-    "/images/Menu12.png",   
-    "/images/Menu13.png",
-    "/images/Menu14.png",
-    "/images/Menu15.png",
-    "/images/Menu16.png",
-    "/images/Menu17.png",
-    "/images/Menu18.png",
-    "/images/Menu19.png",
-    "/images/Menu20.png",        
-];
-
-function Menupage() {
-
-    const [selectedImage,setSelectedImage] = useState(null);
   return (
     <div className="min-h-screen bg-black p-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {Menus.map((src, index) => (
-                <div 
-                key={index}
-                className="cursor-pointer overflow-hidden rounded-lg border border-white/10 hover:scale-105 transition"
-                onClick={() => setSelectedImage(src)}>
-                    <img 
-                    src={src} alt='Menu'
-                    className='w-full h-full object-cover'/>
-                    </div>
-            ))}
-        </div>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {Menus.map((src, idx) => (
+          <div key={idx} className="rounded-lg border border-white/10 p-4 bg-white/5">
+            <div className="w-full aspect-[3/4] rounded-md bg-white/10 flex items-center justify-center text-white/70 text-sm">
+              Menu PDF
+            </div>
+            <button
+              onClick={() => onView(src)}
+              className="mt-3 w-full rounded-md bg-white text-black py-2 text-sm font-medium hover:bg-white/90 transition"
+            >
+              View Menu
+            </button>
+          </div>
+        ))}
+      </div>
 
-        {selectedImage && 
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 overflow-auto">
-            <div className='relative max-w-3xl w-full p-4 mx-4'>
-                <button onClick={() => setSelectedImage(null)}>
-                    <X className='absolute top-4 right-4 text-white' size={25} />
-                </button>
-                <img src={selectedImage} alt="Large view" className="w-full max-h-[80vh] object-contain rounded-lg" />
-                </div>
-                </div>}
+      {open && pdfUrl && (
+        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center">
+          <div className="relative w-[95vw] max-w-6xl h-[88vh] bg-[#0b0b0b] rounded-lg border border-white/10 overflow-hidden">
+            <button
+              onClick={() => setOpen(false)}
+              aria-label="Close"
+              className="absolute top-3 right-3 z-10 p-1 rounded hover:bg-white/10"
+            >
+              <X className="text-white" size={24} />
+            </button>
+
+            <div className="h-full">
+              <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js">
+                <Viewer
+                  fileUrl={pdfUrl}
+                  plugins={[defaultLayoutPluginInstance]} // adds toolbar, page nav, zoom, print, etc.
+                  theme="dark"
+                />
+              </Worker>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
-   
   )
 }
-
-export default Menupage

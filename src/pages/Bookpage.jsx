@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {motion, AnimatePresence} from "framer-motion";
+import { motion, AnimatePresence} from "framer-motion";
 import MenuImage from "../assets/menuimage.jpg";
 import emailjs from '@emailjs/browser';
 import { useNavigate } from 'react-router-dom';
@@ -202,14 +202,15 @@ function Bookpage() {
                         >
                             {isSubmitting ? 'Booking...' : 'Book Your Table'}
                         </button>
-                        <button 
-                            type='button'
-                            className='bg-red-700 text-white font-semibold px-6 py-2 rounded-xl shadow-lg hover:bg-white/30 hover:text-red-700 transition-all duration-300' 
-                            onClick={() => navigate('/menu')}
-                            disabled={isSubmitting}
+                       <button
+                        type="button"
+                        className="bg-red-700 text-white font-semibold px-6 py-2 rounded-xl shadow-lg hover:bg-white/30 hover:text-red-700 transition-all duration-300"
+                        onClick={() =>{ window.open('/assets/menucard.pdf', '_blank', 'noopener,noreferrer'); }}
+                        disabled={isSubmitting}
                         >
-                            View Menu
+                        View Menu
                         </button>
+
                     </div>
                 </form>
             </motion.div>
